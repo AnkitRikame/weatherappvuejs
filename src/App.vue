@@ -4,24 +4,23 @@
       <h3 class="text-center" style="color:#fff; font-size:2.3em; font-weight:bold;"> Weather App</h3>
        
       
-      
        <TabNav :tabs="['WindSpeed','Humidity','Pressure','Sunrise','Sunset']" :selected="selected" @selected="setSelected">
         <Tab :isSelected="selected === 'WindSpeed'">
-              <p>{{weather.wind != undefined ? weather.wind.speed : ""}}</p>
+              <p>{{weather.wind != undefined ? weather.wind.speed : ""}} km/h</p>
               
         </Tab>
         <Tab :isSelected="selected === 'Humidity'">
-              <p>{{weather.main != undefined ? weather.main.humidity : ""}}</p>
+              <p>{{weather.main != undefined ? weather.main.humidity : ""}} %</p>
         </Tab>
         <Tab :isSelected="selected === 'Pressure'">
-           <p>{{weather.main != undefined ? weather.main.pressure : ""}}</p>
+           <p>{{weather.main != undefined ? weather.main.pressure : ""}} Pa</p>
           
         </Tab>
         <Tab :isSelected="selected === 'Sunrise'">
-           <p>{{weather.main != undefined ? weather.main.grnd_level : ""}}</p>
+           <p>{{dateBuilder()}}</p>
         </Tab>
         <Tab :isSelected="selected === 'Sunset'">
-               <p>{{weather.main != undefined ? dt_txt : ""}}</p>
+               <p> {{dateBuilder()}}</p>
         </Tab>
       </TabNav>
       
@@ -71,7 +70,7 @@
       
       </div>
       
-  <HelloWorld />
+
     </main>
 
     
@@ -82,13 +81,13 @@
 
 import TabNav from './components/TabNav';
 import Tab from './components/Tab';
-import HelloWorld from './components/HelloWorld.vue'
+/* import HelloWorld from './components/HelloWorld.vue' */
 
 export default {
   watch: {
   },
   name: 'App',
-  components: {TabNav, Tab, HelloWorld},
+  components: {TabNav, Tab},
   data () {
     
     return {
