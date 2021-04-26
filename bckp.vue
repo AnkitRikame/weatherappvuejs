@@ -3,30 +3,24 @@
     <main>
       <h3 class="text-center" style="color:#fff; font-size:2.3em; font-weight:bold;"> Weather App</h3>
        
-      
-      
+      <HelloWorld />
        <TabNav :tabs="['WindSpeed','Humidity','Pressure','Sunrise','Sunset']" :selected="selected" @selected="setSelected">
         <Tab :isSelected="selected === 'WindSpeed'">
               <p>{{weather.wind != undefined ? weather.wind.speed : ""}}</p>
-              
         </Tab>
         <Tab :isSelected="selected === 'Humidity'">
               <p>{{weather.main != undefined ? weather.main.humidity : ""}}</p>
         </Tab>
         <Tab :isSelected="selected === 'Pressure'">
-           <p>{{weather.main != undefined ? weather.main.pressure : ""}}</p>
-          
+            <p>{{weather.wind}}</p>
         </Tab>
         <Tab :isSelected="selected === 'Sunrise'">
-           <p>{{weather.main != undefined ? weather.main.grnd_level : ""}}</p>
+              <p> {{dateBuilder()}}</p>
         </Tab>
         <Tab :isSelected="selected === 'Sunset'">
-               <p>{{weather.main != undefined ? dt_txt : ""}}</p>
+              <p> {{dateBuilder()}}</p>
         </Tab>
       </TabNav>
-      
-
-      
 
       <div class="search-box">
         <input type="text" 
@@ -68,13 +62,8 @@
               {{ Math.round(weather.main.temp_min) }}°c
           </div> 
         </div>
-      
       </div>
-      
-  <HelloWorld />
     </main>
-
-    
   </div>
 </template>
 
@@ -147,7 +136,7 @@ body{
 }
 
 #app{
-  background-image: url('./assets/cold.jpg'); 
+  background-image: url('./assets/cold.jpg');
   background-size:cover;
   object-fit: contain;
   /* background-position: bottom; */
@@ -165,9 +154,8 @@ body{
 }
 
 #app.warm{
-  background-image: url('./assets/hot.jpg'); 
-} 
-
+  background-image: url('./assets/hot.jpg');
+}
 
 main{
   min-height: 100vh;
